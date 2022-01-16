@@ -82,11 +82,7 @@ def main():
     # Use all classifiers
     clfV = VotingClassifier(estimators=[('clfAda', clfAda), ('clfSVC', clfSVC), ('clfGBC', clfGBC), ('clfRF', clfRF)], voting='hard')
     
-    print("clfAda ",np.mean(cross_val_score(clfAda, X, y, cv=5)))
-    print("clfSVC ",np.mean(cross_val_score(clfSVC, X, y, cv=5)))
-    print("clfGBC ",np.mean(cross_val_score(clfGBC, X, y, cv=5)))
-    print("clfRF ",np.mean(cross_val_score(clfRF, X, y, cv=5)))
-    print("clfV ",np.mean(cross_val_score(clfV, X, y, cv=5)))
+    
 
     # Get model
     classifier_network = simple_classifier(input_size = 10, hidden_size = 10, output_size = 4)
@@ -101,13 +97,13 @@ def main():
     train(classifier_network,X,y,1,8)
     # Accuracy
     y_hat = classifier_network(X)
-    for x,y in zip(X, y_hat):
-        print(x,' | ',y,'\n')
+    #for x,y in zip(X, y_hat):
+        #print(x,' | ',y,'\n')
     y_hat_hot = one_hot_encoding(np.argmax(y_hat.detach(), axis=1), 4)
     #print('accuracies ',torch.mean(4*(y * y_hat_hot)))
     wyniki = np.argmax(y_hat.detach(), axis=1)
     with open('wyniki', 'w') as f:
-        print(y_hat_hot)
+        #print(y_hat_hot)
         f.write(str(wyniki))
     
 

@@ -56,8 +56,8 @@ def get_data():
 
 def main():
     X,y = get_data()
-    print(X)
-    print(y)
+    #print(X)
+    #print(y)
 
 
 
@@ -121,8 +121,8 @@ def get_data():
 
 def main():
     X,y = get_data()
-    print(X)
-    print(y)
+    #print(X)
+    #print(y)
 
 
 

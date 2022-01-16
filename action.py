@@ -19,12 +19,13 @@ class Action(object):
         features = features.replace('[','')
         features = features.replace(']','')
         features = features.split('\n')
+
         f_tones = open('tones', "r")
         tones = f_tones.read()
-        print(labels)
+        #print(labels)
         emo = []
         emo.append([])
-        for j in range(0,len(features)-2):
+        for j in range(len(features)-2):
             emotions = []
             if j == 0:
                 wektor = features[j].split(',')
@@ -63,10 +64,10 @@ class Action(object):
                 if float(wektor[6]) != 0.0:
                     emotions.append("tentative") 
                 emo[j].append(emotions)
-        print('username ',len(username))
-        print('emo ',len(emo))
-        print('tones ',len(tones))
-        print(labels)
+        #print('username ',len(username))
+        #print('emo ',len(emo))
+        #print('tones ',len(tones))
+        #print(labels)
         for i in range(0,len(username)):
             #print("To jest mój prawdziwy wektor : ",features[i].split(','))    
             #print(str(labels[i]))
